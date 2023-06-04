@@ -63,4 +63,16 @@ class FruitResourceTest {
         assertThat(fruits, not(empty()));
 
     }
+
+    @Test
+    void testRemoveAll(){
+        Response response = given().contentType(ContentType.JSON)
+                .when().delete("/fruits")
+                .then().statusCode(200)
+                .body("size()", is(0))
+                .body("name", not(hasItem("apple"))).extract().response();
+
+        List<Fruit> fruits = response.jsonPath().getList("$");
+        assertThat(fruits, empty());
+    }
 }
