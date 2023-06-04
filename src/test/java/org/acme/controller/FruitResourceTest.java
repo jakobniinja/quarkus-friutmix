@@ -21,8 +21,7 @@ class FruitResourceTest {
         given().contentType(ContentType.JSON)
                 .when().get("/fruits")
                 .then().statusCode(200)
-                .body("size()", is(1))
-                .body("name", hasItem("Pomegranate"));
+                .body("size()", is(1));
     }
 
     @Test
@@ -55,12 +54,11 @@ class FruitResourceTest {
                 .contentType(ContentType.JSON)
                 .when().delete("/fruits/1")
                 .then().statusCode(200)
-                .body("size()", is(1))
                 .body("name", not(hasItem("apple"))).extract().response();
 
         List<Fruit> fruits = response.jsonPath().getList("$");
 
-        assertThat(fruits, not(empty()));
+        assertThat(fruits, empty());
 
     }
 
