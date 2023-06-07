@@ -21,3 +21,12 @@ mongosh "mongodb+srv://cluster0.mwypxof.mongodb.net" --apiVersion 1 --username j
 ```
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.# quarkus-friutmix
+
+
+### To start Docker
+
+```shell script
+sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/code-with-quarkus-jvm .
+sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
+```
+

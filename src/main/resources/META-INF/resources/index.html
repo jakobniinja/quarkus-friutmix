@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+<<plugin>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <version>2.5.5</version>
+    <configuration>
+        <archive>
+            <manifest>
+                <mainClass>dk.tbsalling.ais.cli.AisCli</mainClass>
+            </manifest>
+        </archive>
+        <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+    </configuration>
+    <executions>
+        <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
