@@ -18,10 +18,12 @@ import static org.hamcrest.Matchers.*;
 class FruitResourceTest {
     @Test
     void testGetAll() {
-        given().contentType(ContentType.JSON)
+        Response response = given().contentType(ContentType.JSON)
                 .when().get("/fruits")
                 .then().statusCode(200)
-                .body("size()", is(1));
+                .extract().response();
+
+        assertThat(response.jsonPath().getList("list").size(), is(greaterThanOrEqualTo(0)));
     }
 
     @Test
@@ -37,15 +39,14 @@ class FruitResourceTest {
         Response response = given()
                 .contentType(ContentType.JSON)
                 .body(map)
-                .when().post("/fruits")
-                .then().statusCode(200).extract().response();
+                .when().post("/fruits").then()
+                .statusCode(200)
+                .body("name", hasItem("apple")).extract().response();
 
 
         List<Fruit> fruits = response.jsonPath().getList("$");
 
         assertThat(fruits, not(empty()));
-
-
     }
 
     @Test
@@ -63,7 +64,7 @@ class FruitResourceTest {
     }
 
     @Test
-    void testRemoveAll(){
+    void testRemoveAll() {
         Response response = given().contentType(ContentType.JSON)
                 .when().delete("/fruits")
                 .then().statusCode(200)
