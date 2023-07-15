@@ -1,9 +1,5 @@
 # code-with-quarkus
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
-
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
@@ -30,3 +26,7 @@ sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/code-with-quarkus
 sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
 ```
 
+### Daily log
+``` 
+15/7 - installed mongodb on aws ec2 instance and accepted all inbound ip-addresses in mongodb atlas
+```
