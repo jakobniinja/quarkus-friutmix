@@ -8,7 +8,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import java.time.LocalDateTime;
 
 @Path("test")
-@Tag(name = "JAX-RS Ping Resource", description = "A Ping resource that returns a greeting")
+@Tag(name = "Ping Resource", description = "A Ping resource that returns a greeting")
 public class HiResource {
     @GET
     public String hello() {

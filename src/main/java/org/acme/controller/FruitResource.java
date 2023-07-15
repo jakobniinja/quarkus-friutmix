@@ -14,7 +14,7 @@ import java.util.List;
 @Path("fruits")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Tag(name = "JAX-RS Fruit Resource", description = "Crud operation available for a wide variety of fruits")
+@Tag(name = "Fruit Resource", description = "Crud operation available for a wide variety of fruits")
 @APIResponses(value = {
         @APIResponse(responseCode = "200", description = "Successfully retrieved"),
         @APIResponse(responseCode = "404", description = "Not found - The fruit was not found"),
