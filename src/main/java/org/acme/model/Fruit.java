@@ -1,11 +1,18 @@
 package org.acme.model;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import java.util.Objects;
 
 public class Fruit {
 
+    @Schema(name = "_id", example = "1", required = true)
     private String _id;
+
+    @Schema(name = "name", example = "Apple", required = true)
     private String name;
+
+    @Schema(name = "description", example = "A green fruit that grows on trees", required = true)
     private String description;
 
     public Fruit() {
