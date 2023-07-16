@@ -16,8 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static com.mongodb.client.model.Filters.gt;
-import static com.mongodb.client.model.Filters.lt;
+import static com.mongodb.client.model.Filters.*;
 
 @ApplicationScoped
 public class FruitService {
@@ -56,9 +55,8 @@ public class FruitService {
 
     public void delete(String id) {
 
-        Document document = new Document()
-                .append("_id", id);
-        getCollection().deleteOne(document);
+        Bson query = eq("_id", id);
+        DeleteResult result = getCollection().deleteOne(query);
 
     }
 

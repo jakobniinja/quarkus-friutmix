@@ -4,6 +4,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.acme.model.Fruit;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -16,6 +17,17 @@ import static org.hamcrest.Matchers.*;
 
 @QuarkusTest
 class FruitResourceTest {
+
+    @AfterEach
+    void tearDown() {
+        Response response = given().contentType(ContentType.JSON)
+                .when().delete("/fruits")
+                .then().statusCode(200)
+                .body("size()", is(0))
+                .body("name", not(hasItem("apple"))).extract().response();
+
+    }
+
     @Test
     void testGetAll() {
         Response response = given().contentType(ContentType.JSON)
@@ -50,14 +62,13 @@ class FruitResourceTest {
 
     @Test
     void testRemove() {
-        Response response = given()
-                .contentType(ContentType.JSON)
+        Response res = given().contentType(ContentType.JSON)
                 .when().delete("/fruits/1")
                 .then().statusCode(200)
-                .body("name", not(hasItem("apple"))).extract().response();
+                .body("size()", is(0))
+                .extract().response();
 
-        List<Fruit> fruits = response.jsonPath().getList("$");
-
+        List<Fruit> fruits = res.jsonPath().getList("$");
         assertThat(fruits, empty());
 
     }
