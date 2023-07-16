@@ -31,7 +31,6 @@ class FruitResourceTest {
 
         Map<String, String> map = new HashMap<>();
 
-        map.put("_id", "1");
         map.put("name", "apple");
         map.put("description", "small sour apple");
 
