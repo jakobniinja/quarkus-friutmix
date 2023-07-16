@@ -30,4 +30,5 @@ sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
 ``` 
 15/7 - installed mongodb on aws ec2 instance and accepted all inbound ip-addresses in mongodb atlas
 16/7 - added swagger to production build
+16/7 - delete all fruits now working
 ```
