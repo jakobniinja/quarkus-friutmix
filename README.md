@@ -33,4 +33,5 @@ sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
 16/7 - delete all fruits now working
 16/7 - TODO: fix a global counter for id's - uuid is behaving weird
 21/7 - Global counter impl
+21/7 - TODO: create a fruit validatoin for duplicate name 
 ```
