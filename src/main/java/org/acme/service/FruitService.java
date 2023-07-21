@@ -3,23 +3,24 @@ package org.acme.service;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-import com.mongodb.client.model.DeleteOptions;
-import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.DeleteResult;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.acme.model.Fruit;
+import org.acme.utils.Counter;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.gt;
 
 @ApplicationScoped
 public class FruitService {
+
+    private Counter counter = new Counter();
 
     @Inject
     MongoClient mongoClient;
@@ -42,10 +43,10 @@ public class FruitService {
 
 
     public void add(Fruit fruit) {
+        counter.increment();
 
-        String uuid = UUID.randomUUID().toString();
         Document document = new Document()
-                .append("_id", uuid)
+                .append("_id", String.valueOf(counter.getVal()))
                 .append("name", fruit.getName())
                 .append("description", fruit.getDescription());
 
