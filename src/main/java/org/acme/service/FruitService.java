@@ -6,6 +6,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.result.DeleteResult;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import org.acme.model.Fruit;
 import org.acme.utils.Counter;
 import org.bson.Document;
@@ -42,7 +43,17 @@ public class FruitService {
     }
 
 
-    public void add(Fruit fruit) {
+    public void add(@Valid Fruit fruit) {
+
+        // perform empty name validation
+        if (fruit.getName().isBlank()) {
+            return;
+        }
+
+
+        // perform duplicate name validation
+
+
         counter.increment();
 
         Document document = new Document()

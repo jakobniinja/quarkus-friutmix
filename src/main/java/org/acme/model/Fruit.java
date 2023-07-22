@@ -1,5 +1,7 @@
 package org.acme.model;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.util.Objects;
@@ -9,7 +11,10 @@ public class Fruit {
     @Schema(name = "_id", example = "1", required = true)
     private String _id;
 
+    @NotNull(message = "name can't be null")
     @Schema(name = "name", example = "Apple", required = true)
+    @Pattern(regexp = "^\\S*$", message = "name can't contain spaces")
+    @Pattern(regexp = "^\\D*$", message = "name can't contain numbers")
     private String name;
 
     @Schema(name = "description", example = "A green fruit that grows on trees", required = true)
