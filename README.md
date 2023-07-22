@@ -34,4 +34,7 @@ sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
 16/7 - TODO: fix a global counter for id's - uuid is behaving weird
 21/7 - Global counter impl
 21/7 - TODO: create a fruit validation for duplicate name 
+
+22/7 - Fruit is now getting validate every request
+22/7 - TODO: map validation and duplicate key error to status code with short and sweet desc
 ```
