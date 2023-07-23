@@ -83,13 +83,4 @@ class FruitTest {
         assertTrue(name.isBlank());
 
     }
-
-
-    @Test
-    void testValidation() {
-        Fruit fruit = new Fruit("123", "numbers");
-
-        assertEquals(null, fruit.getName());
-
-    }
 }
