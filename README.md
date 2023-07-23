@@ -38,4 +38,6 @@ sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
 22/7 - Fruit is now getting validate every request
 22/7 - TODO: map validation and duplicate key error to status code with short and sweet desc
 23/7 - TODO: decline on user create fruit with existing name in database
+
+23/7 - done: decline on user create fruit with existing name in database
 ```
