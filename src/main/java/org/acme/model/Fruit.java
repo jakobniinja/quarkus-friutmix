@@ -1,5 +1,7 @@
 package org.acme.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -11,7 +13,7 @@ public class Fruit {
     @Schema(name = "_id", example = "1", required = true)
     private String _id;
 
-    @NotNull(message = "name can't be null")
+    @NotBlank(message = "name can't be null or empty")
     @Schema(name = "name", example = "Apple", required = true)
     @Pattern(regexp = "^\\S*$", message = "name can't contain spaces")
     @Pattern(regexp = "^\\D*$", message = "name can't contain numbers")

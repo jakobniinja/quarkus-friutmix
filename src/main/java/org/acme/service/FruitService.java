@@ -45,14 +45,11 @@ public class FruitService {
 
     public void add(@Valid Fruit fruit) {
 
-        // perform empty name validation
-        if (fruit.getName().isBlank()) {
+        List<Fruit> allFruits = list();
+
+        if (allFruits.stream().anyMatch(f -> fruit.getName().equalsIgnoreCase(f.getName()))) {
             return;
         }
-
-
-        // perform duplicate name validation
-
 
         counter.increment();
 

@@ -36,7 +36,7 @@ class FruitValidationTest {
 
 
     @Test
-    void hasFruitValidName() {
+    void hasFruitValidNameTest() {
         Fruit fruit = new Fruit();
         fruit.set_id("3");
         fruit.setName("123 apples");
