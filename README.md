@@ -43,4 +43,5 @@ sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
 22/7 - done: impl validation mapping with exception mapper
 
 22/7 - TODO: impl find, search and sort for fruits with streams
+24/7 - just updated git user.email to show commits
 ```
