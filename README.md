@@ -48,4 +48,8 @@ sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
 27/7 - added microprofile feature metric and added a simple counter for test.
 27/7 - TODO: should i add 200/500 counter for each fruit service?
 27/7 - TODO: is promethus and grafana intregration valuable?
+
+30/7 - learnt about restassured and jersey testing 
+ps. jersey didn't work as expected 
+
 ```
