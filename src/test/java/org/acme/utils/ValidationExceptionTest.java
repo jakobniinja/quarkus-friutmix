@@ -1,25 +1,35 @@
 package org.acme.utils;
 
-import jakarta.ws.rs.core.Response;
-import org.acme.controller.FruitResource;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
+import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
-public class ValidationExceptionTest extends JerseyTest {
+import static io.restassured.RestAssured.given;
 
+@QuarkusTest
+public class ValidationExceptionTest {
 
-    @Override
-    public ResourceConfig configure() {
-        return new ResourceConfig()
-                .register(FruitResource.class)
-                .register(ValidationException.class);
+    @Test
+    public void toResponseAction() {
+        String fruit = "{\"name\":\"3 apples\",\"description\":\"a fruit that grow on trees\"}";
+
+        given().
+                contentType(ContentType.JSON).
+                body(fruit).
+                when().
+                post("/fruits").
+                then().statusCode(400);
     }
 
     @Test
-    public void simpleGetFruits() {
-        final Response response = target("/fruits")
-                .request()
-                .get();
+    public void toResponseOk() {
+        String fruit = "{\"name\":\"apple\",\"description\":\"a fruit that grow on trees\"}";
+
+        given().
+                contentType(ContentType.JSON).
+                body(fruit).
+                when().
+                post("/fruits").
+                then().statusCode(200);
     }
 }
