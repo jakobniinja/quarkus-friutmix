@@ -53,4 +53,6 @@ sudo docker run -i --rm -p 8081:8081 quarkus/code-with-quarkus-jvm
 ps. jersey didn't work as expected 
 31/7 - removed jersey test and worked out how to kick in the exception mapper 😎
 
+2/8 - coverage is 97% i will make it 100%
+
 ```
