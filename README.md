@@ -56,5 +56,7 @@ ps. jersey didn't work as expected
 2/8 - coverage is 97% i will make it 100%
 2/8 - did finally make it 100% coverage but a somewhat resilient approach
 ps. FruitResourceTest and DuplicateKeyExceptionTest Intermittent fails if you run from the test/java package
+TODO: learn how to write unit test in Quarkus framework
+
 
 ```
